@@ -33,7 +33,10 @@ inputs.forEach(function (input) {
         const amazon_price = parseFloat(amazon.dataset.price);
         const amazon_cost = qty * amazon_price;
 
+//update the span within the amazon div with the value of amazon 
+
         amazon_span.innerHTML = amazon_cost;
+        amazon.classList.add("active");
 
         const freshdirect = this_row.querySelector(".freshdirect");
        const freshdirect_span = freshdirect.querySelector("span");
@@ -41,6 +44,7 @@ inputs.forEach(function (input) {
        const freshdirect_cost - qty * freshdirect_price;
 
        freshdirect_span.innerHTML = freshdirect_cost;
+       freshdirect.classList.add("active");
 
         const peapod = this_row.querySelector (".peapod");
         const peapod_span = peapod.querySelector("span");
@@ -48,6 +52,7 @@ inputs.forEach(function (input) {
         const peapod_cost = qty * peapod_price;
 
         peapod_span.innerHTML = peapod_cost;
+        peapod.classList.add("active");
 
     });
 });
