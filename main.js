@@ -15,7 +15,7 @@ function round_number(num) {
 }
 
 //get all of the calculator inputs 
-const inputs = document.querySelectorAll("name='qty']");
+const inputs = document.querySelectorAll("[name='qty']");
 
 //evaluate all of the inputs 
 inputs.forEach(function (input) {
@@ -24,7 +24,7 @@ inputs.forEach(function (input) {
     input.addEventListener("change", function (e) {
 
         const this_input = e.target; 
-        const qty = e.parseFloat(e.target.value);
+        const qty = parseFloat(e.target.value);
         const this_row = this_input.closest(".row")
         
 
@@ -41,7 +41,7 @@ inputs.forEach(function (input) {
         const freshdirect = this_row.querySelector(".freshdirect");
        const freshdirect_span = freshdirect.querySelector("span");
        const freshdirect_price = parseFloat(freshdirect.dataset.price);
-       const freshdirect_cost - qty * freshdirect_price;
+       const freshdirect_cost = qty * freshdirect_price;
 
        freshdirect_span.innerHTML = freshdirect_cost;
        freshdirect.classList.add("active");
