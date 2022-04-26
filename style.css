@@ -145,16 +145,16 @@ figcaption {
 * We also apply margins to them to air them out
 */
 
-.peapod,
-.freshdirect,
-.amazon {
+.CVS,
+.RiteAid,
+.Target {
     margin: 5px 0;
     display: none;
 }
 
-.peapod.active,
-.freshdirect.active,
-.amazon.active {
+.CVS.active,
+.RiteAid.active,
+.Target.active {
     display: block;
 }
 

@@ -28,49 +28,46 @@ inputs.forEach(function (input) {
         const this_row = this_input.closest(".row")
         
 
-        const amazon = this_row.querySelector (".amazon");
-        const amazon_span = amazon.querySelector("span");
-        const amazon_price = parseFloat(amazon.dataset.price);
+        const Target = this_row.querySelector (".Target");
+        const Target_span = Target.querySelector("span");
+        const Target_price = parseFloat(Target.dataset.price);
         const amazon_cost = qty * amazon_price;
 
-//update the span within the amazon div with the value of amazon 
+        Target_span.innerHTML = round_number (Target_cost);
+        Target.classList.add("active");
 
-        amazon_span.innerHTML = round_number (amazon_cost);
-        amazon.classList.add("active");
+        const RiteAid = this_row.querySelector(".RiteAid");
+       const RiteAid_span = RiteAid.querySelector("span");
+       const RiteAid_price = parseFloat(RiteAid.dataset.price);
+       const RiteAid_cost = qty * RiteAid_price;
 
-        const freshdirect = this_row.querySelector(".freshdirect");
-       const freshdirect_span = freshdirect.querySelector("span");
-       const freshdirect_price = parseFloat(freshdirect.dataset.price);
-       const freshdirect_cost = qty * freshdirect_price;
+       RiteAid_span.innerHTML = round_number (RiteAid_cost);
+       RiteAid.classList.add("active");
 
-       freshdirect_span.innerHTML = round_number (freshdirect_cost);
-       freshdirect.classList.add("active");
+        const CVS = this_row.querySelector (".CVS");
+        const CVS_span = CVS.querySelector("span");
+        const CVS_price = parseFloat(CVS.dataset.price);
+        const CVS_cost = qty * CVS_price;
 
-        const peapod = this_row.querySelector (".peapod");
-        const peapod_span = peapod.querySelector("span");
-        const peapod_price = parseFloat(peapod.dataset.price);
-        const peapod_cost = qty * peapod_price;
-
-        peapod_span.innerHTML = round_number (peapod_cost);
-        peapod.classList.add("active");
+        CVS_span.innerHTML = round_number (CVS_cost);
+        CVS.classList.add("active");
 
 
         /**
          * finding least expensive retailer
-         * default to amazon (alphabetical)
          */
         let cheap = false;
-        //if and only if amazon is cheaper than its competitors, update cheap to be amazon//
-        if (amazon_cost < freshdirect_cost && amazon_cost < peapod_cost) {
-            cheap = amazon;
+        //if and only if Target is cheaper than its competitors, update cheap to be Target//
+        if (Target_cost < RiteAid_cost && Target_cost < CVS_cost) {
+            cheap = Target;
         }
-//if and only if freshdirect is cheaper than its competitors, update cheap to freshdirect//
-        if (freshdirect_cost < amazon_cost && freshdirect_cost < peapod_cost) {
-            cheap = freshdirect;
+//if and only if RiteAid is cheaper than its competitors, update cheap to RiteAid//
+        if (RiteAid_cost < Target_cost && RiteAid_cost < CVS_cost) {
+            cheap = CVS;
         }
-        //if and only if peapod is cheaper than its competitors, update cheap to peapod //
-        if (peapod_cost < amazon_cost && peapod_cost < freshdirect_cost) {
-            cheap = peapod;
+        //if and only if CVS is cheaper than its competitors, update cheap to CVS //
+        if (CVS_cost < Target_cost && CVS_cost < RiteAid_cost) {
+            cheap = CVS;
         }
 
         const current_cheap = this_row.querySelector(".cheap");
