@@ -31,7 +31,7 @@ inputs.forEach(function (input) {
         const Target = this_row.querySelector (".Target");
         const Target_span = Target.querySelector("span");
         const Target_price = parseFloat(Target.dataset.price);
-        const amazon_cost = qty * amazon_price;
+        const amazon_cost = qty * Target_price;
 
         Target_span.innerHTML = round_number (Target_cost);
         Target.classList.add("active");
