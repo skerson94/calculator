@@ -31,7 +31,7 @@ inputs.forEach(function (input) {
         const Target = this_row.querySelector (".Target");
         const Target_span = Target.querySelector("span");
         const Target_price = parseFloat(Target.dataset.price);
-        const amazon_cost = qty * Target_price;
+        const Target_cost = qty * Target_price;
 
         Target_span.innerHTML = round_number (Target_cost);
         Target.classList.add("active");
@@ -63,7 +63,7 @@ inputs.forEach(function (input) {
         }
 //if and only if RiteAid is cheaper than its competitors, update cheap to RiteAid//
         if (RiteAid_cost < Target_cost && RiteAid_cost < CVS_cost) {
-            cheap = CVS;
+            cheap = RiteAid;
         }
         //if and only if CVS is cheaper than its competitors, update cheap to CVS //
         if (CVS_cost < Target_cost && CVS_cost < RiteAid_cost) {
